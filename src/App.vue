@@ -26,6 +26,7 @@ body {
   font-size: 12px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: $foreground1;
   background-color: $grey1;
 }
 
