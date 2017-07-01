@@ -1,13 +1,10 @@
-<template>
-  <div id="app">
-    <header>
-      <span>Vue.js PWA</span>
-    </header>
-    <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
-      <router-view></router-view>
-    </main>
-  </div>
+<template lang="pug">
+  #app
+    header
+      span Vue.js PWA
+    main
+      img(src="./assets/logo.png" alt="Vue.js PWA")
+      router-view
 </template>
 
 <script>
@@ -16,7 +13,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 body {
   margin: 0;
 }
@@ -39,16 +36,16 @@ header {
   padding: 0 16px 0 24px;
   background-color: #35495E;
   color: #ffffff;
-}
 
-header span {
-  display: block;
-  position: relative;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: .02em;
-  font-weight: 400;
-  box-sizing: border-box;
-  padding-top: 16px;
+  span {
+    display: block;
+    position: relative;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: .02em;
+    font-weight: 400;
+    box-sizing: border-box;
+    padding-top: 16px;
+  }
 }
 </style>
