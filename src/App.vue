@@ -14,6 +14,9 @@ export default {
 </script>
 
 <style lang="scss">
+// https://necolas.github.io/normalize.css
+@import '~normalize.css';
+
 body {
   margin: 0;
 }
