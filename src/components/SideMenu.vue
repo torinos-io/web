@@ -1,8 +1,11 @@
 <template lang='pug'>
   .side-menu
     ul.side-menu-list
-      li.side-menu-list-item(v-for="link in links")
-        router-link(:to="link.to") {{ link.text }}
+      router-link.side-menu-list-item(
+        v-for="link in links"
+        :to="link.to"
+        tag="li"
+      ) {{ link.text }}
 </template>
 
 <script>
@@ -26,17 +29,18 @@ export default {
 @import 'src/styles/base';
 
 .side-menu {
+  display: inline-block;
+  position: fixed;
+
   &-list {
     display: flex;
     flex-direction: column;
 
     &-item {
       margin: 10px 0 8px 32px;
-
-      a {
-        color: $orange1;
-        text-decoration: none;
-      }
+      list-style: none;
+      color: $orange1;
+      cursor: pointer;
     }
   }
 }
