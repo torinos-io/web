@@ -1,31 +1,32 @@
 <template lang="pug">
   #app
-    header
-      span Vue.js PWA
+    side-menu
     main
-      img(src="./assets/logo.png" alt="Vue.js PWA")
       router-view
 </template>
 
 <script>
+import SideMenu from '@/components/SideMenu';
+
 export default {
   name: 'app',
+  components: {
+    SideMenu,
+  },
 };
 </script>
 
 <style lang="scss">
 // https://necolas.github.io/normalize.css
 @import '~normalize.css';
+@import 'src/styles/base';
 
 body {
-  margin: 0;
-}
-
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Monaco;
+  font-size: 12px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  background-color: $grey1;
 }
 
 main {
