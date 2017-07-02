@@ -2,9 +2,10 @@
   .side-menu
     ul.side-menu-list
       router-link.side-menu-list-item(
-        v-for="link in links"
+        v-for="(link, index) in links"
         :to="link.to"
         tag="li"
+        key="index"
       ) {{ link.text }}
 </template>
 
