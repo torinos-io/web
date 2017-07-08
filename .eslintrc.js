@@ -42,5 +42,6 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'no-shadow': ['off'],
     'no-param-reassign': ['off'],
+    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
   },
 };
