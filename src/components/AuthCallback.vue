@@ -1,5 +1,6 @@
 <template lang='pug'>
 section.auth-callback
+  h3 Redirecting ...
 </template>
 
 <script>

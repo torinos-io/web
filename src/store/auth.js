@@ -1,4 +1,5 @@
 import Api from '@/services/Api';
+import router from '@/router';
 
 // Initial state
 const state = {
@@ -23,7 +24,9 @@ const actions = {
   sendAuthorizationCode: ({ commit }, { code }) => {
     Api.post('oauth/github/authentication', { authorizationCode: code }).then(
       ({ response }) => {
-        commit('setAccessToken', response.data.githubAccessToken);
+        if (response) {
+          commit('setAccessToken', response.data.githubAccessToken);
+        }
       },
       (err) => {
         console.log(err);
@@ -44,6 +47,9 @@ const mutations = {
 
       // Set accessToken to localStorage.
       localStorage.setItem('accessToken', accessToken);
+
+      // Send user to root page.
+      router.push({ name: 'root' });
     }
   },
 };
