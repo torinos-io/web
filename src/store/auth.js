@@ -36,22 +36,24 @@ const actions = {
     );
   },
 
-  // loadAccessToken retrieve the access token from the localStorage.
+  // loadAccessToken retrieves the access token from the localStorage.
   loadAccessToken: ({ commit }) => {
     commit('getAccessTokenFromLocalStorage');
   },
 
-  // clearAccessToken flush the access token from the localStorage.
+  // clearAccessToken flushes the access token from the localStorage.
   clearAccessToken: ({ commit }) => {
     commit('clearAccessTokenFromLocalStorage');
   },
 };
 
 const mutations = {
+  // setAuthUrl sets the GitHub authentication URL to the vuex store.
   setAuthUrl: (state, authUrl) => {
     state.authUrl = authUrl;
   },
 
+  // setAccessToken sets the access token to the store and the localStorage.
   setAccessToken: (state, accessToken) => {
     // Validate the accessToken with length.
     if (accessToken.length > 0) {
@@ -60,7 +62,7 @@ const mutations = {
       // Set accessToken to localStorage.
       localStorage.setItem(accessTokenKey, accessToken);
 
-      // Send user to root page.
+      // Send the user to root page.
       router.push({ name: 'root' });
     }
   },
