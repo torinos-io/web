@@ -1,17 +1,10 @@
 <template lang='pug'>
 section.project
-  h2.project-lede
-    span.project-lede-bold 4/8 libs
-    |  ready to swift 4.0!
-  files
 </template>
 
 <script>
-import Files from './Files';
-
 export default {
   name: 'project',
-  components: { Files },
 };
 </script>
 
