@@ -1,28 +1,40 @@
 web
 ===
 
+[![CircleCI](https://circleci.com/gh/torinos-io/web.svg?style=svg&circle-token=fd8303e17809d0dc90c7fe7aecb516a096803905)](https://circleci.com/gh/torinos-io/web)
+
 Web frontend of torinos
 
-## Build Setup
 
-``` bash
-# install dependencies
-yarn
+Setup
+-----
 
-# serve with hot reload at localhost:8080
-yarn dev
+Install Docker, docker-compose and https://github.com/creasty/rid.
 
-# build for production with minification
-yarn build
-
-# build for production and view the bundle analyzer report
-yarn build -- --report
-
-# run unit tests
-yarn unit
-
-# run all tests
-npm test
+```sh-session
+$ rid compose pull
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+Run
+---
+
+``` sh-session
+# install dependencies
+$ rid yarn
+
+# serve with hot reload at localhost:8080
+$ rid yarn dev
+
+# build for production with minification
+$ rid yarn build
+
+# build for production and view the bundle analyzer report
+$ rid yarn build -- --report
+
+# run unit tests
+$ rid yarn unit
+
+# run all tests
+$ rid npm test
+```
