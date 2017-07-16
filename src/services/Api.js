@@ -38,6 +38,11 @@ const errorResponseInterceptor = (error) => {
   if (error.response && error.response.data instanceof Object) {
     error.response.data = camelizeKeys(error.response.data);
   }
+
+  if (error.response.status === 401) {
+    window.location.href = '/';
+  }
+
   return { error };
 };
 
