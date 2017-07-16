@@ -1,11 +1,13 @@
 import axios from 'axios';
 import { camelizeKeys, decamelizeKeys } from 'humps';
 
+import { DEVELOPMENT_HOST, PRODUCTION_HOST } from '@/constants';
+import { isProduction } from './Platform';
+
 // === Constants ===
 const Timeout = 15 * 1000;
 
-// FIXME: change endpoint with environment
-const ApiEndpoint = 'http://localhost:5000';
+const ApiEndpoint = isProduction() ? PRODUCTION_HOST : DEVELOPMENT_HOST;
 
 const baseConfig = {
   timeout: Timeout,
