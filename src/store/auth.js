@@ -74,6 +74,7 @@ const mutations = {
 
   clearAccessTokenFromLocalStorage: (state) => {
     state.accessToken = '';
+    localStorage.removeItem(accessTokenKey);
   },
 };
 

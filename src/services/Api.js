@@ -2,6 +2,7 @@ import axios from 'axios';
 import { camelizeKeys, decamelizeKeys } from 'humps';
 
 import { DEVELOPMENT_HOST, PRODUCTION_HOST } from '@/constants';
+import router from '@/router';
 import { isProduction } from './Platform';
 
 // === Constants ===
@@ -42,7 +43,7 @@ const errorResponseInterceptor = (error) => {
   }
 
   if (error.response.status === 401) {
-    window.location.href = '/';
+    router.push({ name: 'root' });
   }
 
   return { error };
