@@ -1,10 +1,10 @@
 import Api from '@/services/Api';
 import router from '@/router';
 
-const accessTokenKey = 'accessToken';
+export const accessTokenKey = 'accessToken';
 
 // Initial state
-const state = {
+export const state = {
   authUrl: '',
   accessToken: '',
 };
@@ -47,7 +47,7 @@ const actions = {
   },
 };
 
-const mutations = {
+export const mutations = {
   // setAuthUrl sets the GitHub authentication URL to the vuex store.
   setAuthUrl: (state, authUrl) => {
     state.authUrl = authUrl;
