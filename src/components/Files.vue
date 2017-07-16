@@ -11,12 +11,14 @@ input(
 export default {
   name: 'files',
   props: {
+    // onFilesChange is fired in _handleFilesChange function. It receive files as an argument.
     onFilesChange: {
       type: Function,
     },
   },
   data() {
     return {
+      // files stores the files which are selected or drag'n'drop-ed.
       files: [],
     };
   },
