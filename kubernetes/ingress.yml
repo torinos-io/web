@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: torinos-web
+  namespace: torinos-web
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: torinos-web
+spec:
+  tls:
+    - secretName: tls
+  backend:
+    serviceName: torinos-web
+    servicePort: 80

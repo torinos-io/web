@@ -1,0 +1,21 @@
+version: '2.1'
+
+services:
+  app:
+    image: torinosio/web:dev
+    build: .
+    volumes:
+      - ..:/app
+    volumes_from:
+      - volume
+    extra_hosts:
+      localhost: "${DOCKER_HOST_IP}"
+    ports:
+      - 3000:8080
+    command: tail -f /dev/null
+
+  volume:
+    image: alpine:latest
+    volumes:
+      - /app/node_modules
+    command: tail -f /dev/null
