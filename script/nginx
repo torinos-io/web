@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -eu
+set -o pipefail
+
+touch /etc/nginx/.htpasswd
+htpasswd -b /etc/nginx/.htpasswd \
+  "$NGINX_BASIC_AUTH_USERNAME" "$NGINX_BASIC_AUTH_PASSWORD"
+
+nginx -g 'daemon off;'
