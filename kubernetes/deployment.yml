@@ -33,3 +33,14 @@ spec:
             failureThreshold: 5
           ports:
             - containerPort: 8080
+          env:
+            - name: NGINX_BASIC_AUTH_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: dotenv
+                  key: nginx-basic-auth-username
+            - name: NGINX_BASIC_AUTH_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: dotenv
+                  key: nginx-basic-auth-password
