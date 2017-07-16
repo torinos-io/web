@@ -1,6 +1,8 @@
 import Api from '@/services/Api';
 import router from '@/router';
 
+const accessTokenKey = 'accessToken';
+
 // Initial state
 const state = {
   authUrl: '',
@@ -8,8 +10,8 @@ const state = {
 };
 
 const actions = {
-  // loadAuthUrl requests the torinos-io/api server to return the GitHub OAuth URL.
-  loadAuthUrl: ({ commit }) => {
+  // getAuthUrl requests the torinos-io/api server to return the GitHub OAuth URL.
+  getAuthUrl: ({ commit }) => {
     Api.get('oauth/github/authorization').then(
       ({ response }) => {
         commit('setAuthUrl', response.data.url);
@@ -33,6 +35,16 @@ const actions = {
       },
     );
   },
+
+  // loadAccessToken retrieve the access token from the localStorage.
+  loadAccessToken: ({ commit }) => {
+    commit('getAccessTokenFromLocalStorage');
+  },
+
+  // clearAccessToken flush the access token from the localStorage.
+  clearAccessToken: ({ commit }) => {
+    commit('clearAccessTokenFromLocalStorage');
+  },
 };
 
 const mutations = {
@@ -46,11 +58,20 @@ const mutations = {
       state.accessToken = accessToken;
 
       // Set accessToken to localStorage.
-      localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem(accessTokenKey, accessToken);
 
       // Send user to root page.
       router.push({ name: 'root' });
     }
+  },
+
+  getAccessTokenFromLocalStorage: (state) => {
+    const accessToken = localStorage.getItem(accessTokenKey);
+    state.accessToken = accessToken;
+  },
+
+  clearAccessTokenFromLocalStorage: (state) => {
+    state.accessToken = '';
   },
 };
 
