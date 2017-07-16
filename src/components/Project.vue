@@ -1,10 +1,14 @@
 <template lang='pug'>
 section.project
+  github-auth-button
 </template>
 
 <script>
+import GithubAuthButton from './GithubAuthButton';
+
 export default {
   name: 'project',
+  components: { GithubAuthButton },
 };
 </script>
 
