@@ -2,7 +2,8 @@
 input(
   type="file"
   multiple
-  @change="_onFilesChange"
+  @change="_handleFilesChange"
+  @dragover="_handleDragOver"
 )
 </template>
 
@@ -20,8 +21,10 @@ export default {
     };
   },
   methods: {
-    _onFilesChange: function onFilesChange(event) {
-      this.files = [];
+    _handleFilesChange(event) {
+      event.stopPropagation();
+      event.preventDefault();
+
       const files = event.target.files || event.dataTransfer.files;
       if (!files.length) {
         return;
@@ -34,6 +37,11 @@ export default {
       if (this.onFilesChange) {
         this.onFilesChange(this.files);
       }
+    },
+    _handleDragOver(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      event.dataTransfer.dropEffect = 'copy';
     },
   },
 };
