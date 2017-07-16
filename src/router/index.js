@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 import Project from '@/components/Project';
+import AuthCallback from '@/components/AuthCallback';
 
 Vue.use(Router);
 
@@ -12,6 +13,10 @@ export default new Router({
       path: '/',
       name: 'project',
       component: Project,
+    },
+    {
+      path: '/oauth/github/callback',
+      component: AuthCallback,
     },
   ],
 });
