@@ -3,7 +3,7 @@ section.project
   template(v-if="this.$store.state.auth.accessToken")
     p Signed in
     button(@click="signOut") Sign out
-  github-auth-button(v-else)
+  //- github-auth-button(v-else)
 </template>
 
 <script>
