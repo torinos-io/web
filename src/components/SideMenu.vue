@@ -20,6 +20,7 @@ export default {
         { text: 'Navigation', to: '#' },
         { text: 'Menu', to: '#' },
         { text: 'Items', to: '#' },
+        { text: 'Sign out', to: { name: 'signout' } },
       ],
     };
   },

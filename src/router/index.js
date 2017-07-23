@@ -3,6 +3,7 @@ import Router from 'vue-router';
 
 import Project from '@/components/Project';
 import AuthCallback from '@/components/AuthCallback';
+import SignOutCallback from '@/components/SignOutCallback';
 
 Vue.use(Router);
 
@@ -17,6 +18,11 @@ export default new Router({
     {
       path: '/oauth/github/callback',
       component: AuthCallback,
+    },
+    {
+      path: '/signout',
+      name: 'signout',
+      component: SignOutCallback,
     },
   ],
 });

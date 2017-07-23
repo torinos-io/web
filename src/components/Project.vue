@@ -11,7 +11,8 @@ export default {
   components: { GithubAuthButton },
   computed: {
     isSignedIn() {
-      return this.$store.state.auth.accessToken !== '';
+      const accessToken = this.$store.state.auth.accessToken;
+      return accessToken !== '' && accessToken != null;
     },
   },
   beforeMount() {
