@@ -33,7 +33,7 @@ dependencies:
       sudo /opt/google-cloud-sdk/bin/gcloud --quiet container clusters get-credentials "$CLUSTER_NAME"
 
   override:
-    - yarn --force
+    - yarn
 
 test:
   override:
