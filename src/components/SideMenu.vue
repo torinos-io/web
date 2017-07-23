@@ -6,12 +6,13 @@
         :href="link.to"
         key="index"
         v-if="link.external"
-        v-show="link.to"
+        v-show="link.show"
       ) {{ link.text }}
       router-link.side-menu-list-item(
         :to="link.to"
         key="index"
         v-else
+        v-show="link.show"
       ) {{ link.text }}
 </template>
 
@@ -25,12 +26,12 @@ export default {
     },
     links() {
       return [
-        { text: 'Something', to: '#' },
-        { text: 'Like', to: '#' },
-        { text: 'Navigation', to: '#' },
-        { text: 'Menu', to: '#' },
-        { text: 'Sign in', to: this.authUrl(), external: true },
-        { text: 'Sign out', to: { name: 'signout' } },
+        { text: 'Something', to: '#', show: true },
+        { text: 'Like', to: '#', show: true },
+        { text: 'Navigation', to: '#', show: true },
+        { text: 'Menu', to: '#', show: true },
+        { text: 'Sign in', to: this.authUrl(), external: true, show: !this.isSignedIn },
+        { text: 'Sign out', to: { name: 'signout' }, show: this.isSignedIn },
       ];
     },
   },
