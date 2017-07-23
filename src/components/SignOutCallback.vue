@@ -4,14 +4,17 @@ section.auth-callback
 </template>
 
 <script>
+import router from '@/router';
+
 export default {
   name: 'auth-callback',
   mounted() {
-    if (this.$route.query && this.$route.query.code) {
-      const code = this.$route.query.code;
+    this.$store.dispatch('clearAccessToken');
 
-      this.$store.dispatch('sendAuthorizationCode', code);
-    }
+    // Delay to redirect.
+    setTimeout(() => {
+      router.push({ name: 'root' });
+    }, 1000);
   },
 };
 </script>

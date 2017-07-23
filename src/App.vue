@@ -1,6 +1,6 @@
 <template lang="pug">
   #app
-    //- side-menu
+    side-menu
     main
       router-view
 </template>
