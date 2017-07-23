@@ -5,6 +5,9 @@ set -o pipefail
 
 cd "$(dirname $0)/.."
 
+echo "prepare phantomjs for test"
+npm rebuild phantomjs-prebuilt
+
 echo "yarn test"
 yarn test
 
