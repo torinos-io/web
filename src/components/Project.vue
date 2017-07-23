@@ -41,7 +41,9 @@ export default {
     border-radius: 4px;
     padding: 8px;
     font-size: 12px;
+    font-family: inherit;
     color: $orange1;
+    background-color: inherit;
     text-decoration: none;
 
     &:focus {

@@ -1,7 +1,15 @@
 import Api from '@/services/Api';
 
 // Initial state
-export const state = {
+// user obejct is such as below.
+// user: {
+//   id: 1,
+//   githubUuid: '1234567',
+//   userName: 'johndoe',
+//   email: 'john.doe@example.com',
+//   githubAccessToken: 'xxx',
+// }
+const state = {
   user: null,
 };
 
