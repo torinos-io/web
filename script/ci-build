@@ -5,6 +5,9 @@ set -o pipefail
 
 cd "$(dirname $0)/.."
 
+echo "yarn test"
+yarn test
+
 echo "yarn build"
 yarn build
 
