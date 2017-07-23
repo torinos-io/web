@@ -10,7 +10,7 @@ export default {
     if (this.$route.query && this.$route.query.code) {
       const code = this.$route.query.code;
 
-      this.$store.dispatch('sendAuthorizationCode', { code });
+      this.$store.dispatch('sendAuthorizationCode', code);
     }
   },
 };

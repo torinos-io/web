@@ -23,8 +23,8 @@ const actions = {
   },
 
   // sendAuthorizationCode posts the temporary code parameter to authorize.
-  sendAuthorizationCode: ({ commit }, { code }) => {
-    Api.post('oauth/github/authentication', { authorizationCode: code }).then(
+  sendAuthorizationCode: ({ commit }, authorizationCode) => {
+    Api.post('oauth/github/authentication', { authorizationCode }).then(
       ({ response }) => {
         if (response) {
           commit('setAccessToken', response.data.githubAccessToken);
