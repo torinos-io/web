@@ -1,28 +1,59 @@
 <template lang='pug'>
-  .side-menu
-    ul.side-menu-list
-      router-link.side-menu-list-item(
-        v-for="(link, index) in links"
-        :to="link.to"
-        tag="li"
+.side-menu
+  ul.side-menu-list
+    template(v-for="(link, index) in links")
+      a.side-menu-list-item(
+        :href="link.to"
         key="index"
+        v-if="link.external"
+        v-show="link.to"
+      ) {{ link.text }}
+      router-link.side-menu-list-item(
+        :to="link.to"
+        key="index"
+        v-else
       ) {{ link.text }}
 </template>
 
 <script>
 export default {
   name: 'side-menu',
-  data() {
-    return {
-      links: [
+  computed: {
+    isSignedIn() {
+      const accessToken = this.$store.state.auth.accessToken;
+      return accessToken !== '' && accessToken != null;
+    },
+    links() {
+      return [
         { text: 'Something', to: '#' },
         { text: 'Like', to: '#' },
         { text: 'Navigation', to: '#' },
         { text: 'Menu', to: '#' },
-        { text: 'Items', to: '#' },
+        { text: 'Sign in', to: this.authUrl(), external: true },
         { text: 'Sign out', to: { name: 'signout' } },
-      ],
-    };
+      ];
+    },
+  },
+  methods: {
+    authUrl() {
+      if (this.isSignedIn) {
+        return null;
+      }
+      return this.$store.state.auth.authUrl;
+    },
+  },
+  beforeMount() {
+    this.$store.dispatch('loadAccessToken');
+  },
+  mounted() {
+    if (!this.isSignedIn) {
+      this.$store.dispatch('getAuthUrl');
+    }
+  },
+  updated() {
+    if (!this.isSignedIn) {
+      this.$store.dispatch('getAuthUrl');
+    }
   },
 };
 </script>

@@ -1,20 +1,10 @@
 <template lang='pug'>
 section.project
-  github-auth-button.project-button.project-sign-in(v-if="!isSignedIn")
 </template>
 
 <script>
-import GithubAuthButton from './GithubAuthButton';
-
 export default {
   name: 'project',
-  components: { GithubAuthButton },
-  computed: {
-    isSignedIn() {
-      const accessToken = this.$store.state.auth.accessToken;
-      return accessToken !== '' && accessToken != null;
-    },
-  },
   beforeMount() {
     this.$store.dispatch('loadAccessToken');
   },
