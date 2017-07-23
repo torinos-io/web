@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import 'mock-local-storage';
 
 Vue.config.productionTip = false;
 
